@@ -22,12 +22,12 @@ urlpatterns = [
 
 from django.conf.urls import include
 urlpatterns += [
-    url('signup/', include('signup.urls')),
+    url(r'^signup/', include('signup.urls')),
 ]
 
 from django.views.generic import RedirectView
 urlpatterns += [
-    url('/', RedirectView.as_view(url='/signup/', permanent=True)),
+    url(r'^$', RedirectView.as_view(url='/signup', permanent=True)),
 ]
 
 from django.conf import settings

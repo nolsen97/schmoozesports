@@ -14,4 +14,10 @@ class Profile(models.Model):
 		return self.username
 
 	def get_absolute_url(self):
-		return reverse('profile-detail', args=[str(self.id)])
+		return reverse('profile', args=[str(self.id)])
+
+class Admin(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+
+	def __str__(self):
+		return self.user.username
